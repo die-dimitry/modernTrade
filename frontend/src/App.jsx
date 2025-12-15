@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -6,8 +6,20 @@ import Home from './pages/Home'
 import ContactUs from './pages/ContactUs'
 import UserConsent from './pages/UserConsent'
 import TermsAndConditions from './pages/TermsAndConditions'
+import LoadingScreen from './components/LoadingScreen'
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 3000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (isLoading) {
+    return <LoadingScreen />
+  }
+
   return (
     <Router>
       <div className="min-h-screen flex flex-col">

@@ -103,7 +103,7 @@ export async function generateConsentPDF(opts: {
     doc.fontSize(18).font('Helvetica-Bold').text('MODERN TRADE', { align: 'center' });
     doc.fontSize(12).font('Helvetica').text('Your Premium Market Analysis Service in India', { align: 'center' });
     doc.moveDown(1.5);
-
+    
     // ========== LEGAL TEXT SECTION ==========
     doc.fontSize(16).font('Helvetica-Bold').text('USER AGREEMENT & RISK DISCLOSURE STATEMENT', { align: 'center' });
     doc.moveDown(0.8);
@@ -161,7 +161,7 @@ export async function generateConsentPDF(opts: {
       
       doc.moveDown(item.spacing);
     }
-
+    
     doc.moveDown(1);
 
     // ========== EXECUTION SECTION (User Details) ==========
@@ -205,7 +205,7 @@ export async function generateConsentPDF(opts: {
     const pageWidth = 595; // A4 width in points
     const rightMargin = 50;
     const signatureX = pageWidth - rightMargin - signatureWidth;
-    
+
     // Draw "Signed by:" label on the right side
     doc.fontSize(11).font('Helvetica').text('Signed by:', signatureX, signatureStartY, { align: 'left' });
     const signatureLabelY = doc.y;
