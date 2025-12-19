@@ -39,3 +39,4 @@ export default function SuccessModal({ isOpen, onClose, message = 'Query has bee
 
 
 
+
