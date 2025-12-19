@@ -16,14 +16,25 @@ Railway needs to know which directory contains your application. **You MUST set 
 2. Create a new project
 3. Click **"New Service"** → **"GitHub Repo"**
 4. Select your repository
-5. **🚨 CRITICAL STEP:** 
+5. **🚨 CRITICAL STEP - DO THIS IMMEDIATELY:**
    - Click on your service
    - Go to **Settings** tab
    - Scroll down to **"Root Directory"** section
    - Click **"Edit"** or **"Change"**
-   - Type: `backend` (without quotes)
+   - Type exactly: `backend` (no quotes, no leading/trailing slashes)
    - Click **"Save"** or **"Update"**
    - This tells Railway to use the `backend` folder as the root for this service
+
+### Alternative: If Root Directory Doesn't Work
+
+If you still get "No start command found" error, set these environment variables in Railway Dashboard:
+
+1. Go to your service → **Variables** tab
+2. Add:
+   - `RAILWAY_BUILD_COMMAND` = `npm install && npm run build`
+   - `RAILWAY_START_COMMAND` = `npm start`
+
+This explicitly tells Railway what commands to run.
 
 ### Step 2: Configure Build Settings
 Railway should auto-detect these, but verify in Settings → Build:
