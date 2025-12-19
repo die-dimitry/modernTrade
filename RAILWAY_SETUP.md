@@ -7,12 +7,23 @@
 
 ## 🚀 Quick Start - Deploy Backend on Railway
 
+### ⚠️ CRITICAL: Set Root Directory First!
+
+Railway needs to know which directory contains your application. **You MUST set the Root Directory to `backend`** or Railway will try to build from the root and fail.
+
 ### Step 1: Create Service in Railway
 1. Go to [Railway.app](https://railway.app)
 2. Create a new project
 3. Click **"New Service"** → **"GitHub Repo"**
 4. Select your repository
-5. **IMPORTANT:** In the service settings, set **Root Directory** to: `backend`
+5. **🚨 CRITICAL STEP:** 
+   - Click on your service
+   - Go to **Settings** tab
+   - Scroll down to **"Root Directory"** section
+   - Click **"Edit"** or **"Change"**
+   - Type: `backend` (without quotes)
+   - Click **"Save"** or **"Update"**
+   - This tells Railway to use the `backend` folder as the root for this service
 
 ### Step 2: Configure Build Settings
 Railway should auto-detect these, but verify in Settings → Build:
@@ -65,6 +76,14 @@ If you want to deploy the frontend too:
 ### "Railpack couldn't determine how to build app":
 - Railway couldn't detect Node.js project
 - **Solution:** Ensure Root Directory is set to `backend` (where package.json exists)
+
+### "No start command was found":
+- Railway is looking at the wrong directory (root instead of backend)
+- **Solution:** 
+  1. Go to Service → Settings → Root Directory
+  2. Set it to `backend`
+  3. Save and redeploy
+  4. The `backend/railway.json` file will now be used, which explicitly defines the start command
 
 ### Build fails:
 - Check that Root Directory is correct

@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "Modern Trade Monorepo - Backend and Frontend",
-  "scripts": {
-    "postinstall": "echo 'This is a monorepo. Please set Railway Root Directory to backend/ or frontend/'"
-  },
   "engines": {
     "node": ">=18.0.0"
   }
