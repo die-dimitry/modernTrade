@@ -1,0 +1,14 @@
+{
+  "name": "modern-trade-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Modern Trade Monorepo - Backend and Frontend",
+  "scripts": {
+    "build": "cd backend && npm ci && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
