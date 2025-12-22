@@ -5,6 +5,7 @@ import PhoneInput from '../components/PhoneInput'
 import SuccessModal from '../components/SuccessModal'
 import ErrorModal from '../components/ErrorModal'
 import { getRandomStockImage } from '../utils/imageUtils'
+import { apiBaseUrl } from '../config/api'
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -73,7 +74,7 @@ export default function ContactUs() {
     
     try {
       setLoading(true)
-      const base = import.meta.env.VITE_API_BASE || 'http://localhost:4000/api'
+      const base = apiBaseUrl
       const response = await axios.post(`${base}/contact/submit`, formData, {
         headers: { 'Content-Type': 'application/json' }
       })
