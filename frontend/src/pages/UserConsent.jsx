@@ -6,7 +6,6 @@ import PhoneInput from '../components/PhoneInput'
 import SuccessModal from '../components/SuccessModal'
 import ErrorModal from '../components/ErrorModal'
 import { getRandomStockImage } from '../utils/imageUtils'
-import { apiBaseUrl } from '../config/api'
 
 export default function UserConsent() {
   const sigRef = useRef(null)
@@ -183,7 +182,7 @@ export default function UserConsent() {
 
     try {
       setLoading(true)
-      const base = apiBaseUrl
+      const base = import.meta.env.VITE_API_BASE || 'http://localhost:4000/api'
       await axios.post(`${base}/consent/submit`, form, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
